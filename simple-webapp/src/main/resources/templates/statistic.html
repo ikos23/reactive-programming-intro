@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Statistic</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2 style="margin-bottom: 3px;">Statistic</h2>
+
+<div th:each="entry : ${data}" style="margin-bottom: 5px;">
+    <span style="color: #5f5c5c;">
+        <span>User:</span>
+        <span th:text="${entry.key}" style="font-weight: bold;"></span>
+    </span>
+    => <span th:text="${entry.value.size()}"></span> messages.
+</div>
+</body>
+</html>

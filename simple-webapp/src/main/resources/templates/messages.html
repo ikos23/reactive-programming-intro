@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Messages</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h2 style="margin-bottom: 3px;">Messages</h2>
+<a th:href="@{/saved}" style="display: block;">statistic</a>
+<br />
+<div th:each="msg : ${messages}" style="margin-bottom: 5px;">
+    <div style="color: #5f5c5c;">
+        <span>Message from </span>
+        <span th:text="${msg.fromUser.username}" style="font-weight: bold;"></span>
+    </div>
+    <span style="font-weight: bold; color: blue;" th:text="${msg.text}"></span>
+</div>
+</body>
+</html>

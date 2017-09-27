@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Messages</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <script>
+        var socket = new WebSocket("ws://javascript.ru/msg");
+        socket.onopen = function() {
+          alert("Соединение установлено.");
+        };
+
+        socket.onclose = function(event) {
+          if (event.wasClean) {
+            alert('Соединение закрыто чисто');
+          } else {
+            alert('Обрыв соединения'); // например, "убит" процесс сервера
+          }
+          alert('Код: ' + event.code + ' причина: ' + event.reason);
+        };
+
+        socket.onmessage = function(event) {
+          alert("Получены данные " + event.data);
+        };
+
+        socket.onerror = function(error) {
+          alert("Ошибка " + error.message);
+        };
+    </script>
+</head>
+<body>
+<h3>Messages</h3>
+
+</body>
+</html>
